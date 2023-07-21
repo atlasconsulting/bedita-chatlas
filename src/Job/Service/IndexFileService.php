@@ -36,7 +36,9 @@ class IndexFileService implements JobService
     {
         $handler = new CollectionHandler();
         try {
+            /** @var \BEdita\Core\Model\Entity\ObjectEntity $collection */
             $collection = $this->fetchTable('Collections')->get($payload['collection_id']);
+            /** @var \BEdita\Core\Model\Entity\ObjectEntity $file */
             $file = $this->fetchTable('Files')->get($payload['file_id']);
             $handler->uploadDocument($collection, $file);
 
